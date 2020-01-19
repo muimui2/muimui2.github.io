@@ -1,0 +1,7 @@
+<!-- {%- if jekyll.environment != 'development' -%}
+  
+{%- endif -%} -->
+
+{%- if site.analytics.provider == 'google' -%}
+  {%- include analytics-providers/google.html -%}
+{%- endif -%}

@@ -1,0 +1,46 @@
+
+<footer class="footer py-4 js-page-footer">
+  <div class="main">
+
+    {%- assign _site_author = site.author -%}
+    {%- if _site_author.type == 'organization' -%}
+      {%- assign _site_author_itemtype = 'http://schema.org/Organization' -%}
+    {%- else -%}
+      {%- assign _site_author_itemtype = 'http://schema.org/Person' -%}
+    {%- endif -%}
+
+    <div itemscope itemtype="{{ _site_author_itemtype }}">
+      <meta itemprop="name" content="{{ _site_author.name }}">
+      {%- assign _site_author_url = _site_author.url | default: '/'-%}
+      {%- include snippets/get-nav-url.html path=_site_author_url -%}
+      {%- assign _site_author_url = __return -%}
+      <meta itemprop="url" content="{{ _site_author_url }}">
+      {%- if _site_author.bio -%}
+        <meta itemprop="description" content="{{ _site_author.bio }}">
+      {%- endif -%}
+      <div style="display: flex; display: -webkit-flex; justify-content: center;">
+        <a style="margin-right: 10px" href="https://muitlog.com/sitemap.xml" target="_blank">网站地图</a>
+        <a style="margin-right: 10px" href="https://analytics.google.com/analytics/web/#/report-home/a152699059w215814583p206310955" target="_blank">Google分析</a>
+         <a style="margin-right: 10px" href="http://zhanzhang.sogou.com/index.php/statistics/index" target="_blank">sogou统计</a>
+        <a style="margin-right: 10px" href="http://my.chinaz.com/ChinazToolSeo/IncludedMonitor/Index" target="_blank">站长统计</a>
+        <a style="display: flex; display: -webkit-flex; align-items: center" target="_blank" href="https://tongji.baidu.com/web/welcome/ico?s=9660b36ca9f83946f8f124772b97088b">
+          <img src="/assets/images/logo/43.gif" alt="百度统计">
+        </a>
+      </div>
+      <div style="display: flex; display: -webkit-flex; justify-content: center;">
+        <a style="margin-right: 10px" href="http://zhanzhang.so.com/sitetool/flow" target="_blank">360统计</a>
+         <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1278354578'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1278354578%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+      </div>
+    </div>
+    {%- include snippets/get-locale-string.html key='COPYRIGHT_DATES' -%}
+    {%- assign _locale_copyright_dates = __return -%}
+    <div class="site-info mt-2">
+      <div>
+        {%- include snippets/get-locale-string.html key='COPYRIGHT_DATES' -%}
+        {%- assign _locale_copyright_dates = __return -%}
+        © {{ site.title }} {{ _locale_copyright_dates }}
+      </div>
+    </div>
+  </div>
+</footer>
+

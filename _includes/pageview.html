@@ -1,0 +1,13 @@
+{%- include snippets/assign.html target=site.data.variables.default.pageview source0=page.pageview -%}
+{%- assign _pageview = __return -%}
+
+
+{%- if page.layout == "home" -%}
+
+  {%- include pageview-providers/leancloud/home.html -%}
+
+{%- elsif page.layout == "article" -%}
+  {%- if _pageview -%}
+      {%- include pageview-providers/leancloud/post.html -%}
+  {%- endif -%}
+{%- endif -%}

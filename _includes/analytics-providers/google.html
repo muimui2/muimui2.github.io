@@ -1,0 +1,23 @@
+{%- if site.analytics.google.tracking_id -%}
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152699059-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-152699059-1');
+	{% if site.analytics.google.anonymize_ip == true %}
+		gtag('config', '{{ site.analytics.google.tracking_id }}', { 'anonymize_ip': true });
+	{% endif %}
+</script>		
+<script>
+	var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?9660b36ca9f83946f8f124772b97088b";
+			var s = document.getElementsByTagName("script")[0]; 
+			s.parentNode.insertBefore(hm, s);
+		})();
+</script>
+<script data-ad-client="ca-pub-1750543937233451" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+{%- endif -%}
